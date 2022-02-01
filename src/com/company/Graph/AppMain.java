@@ -11,35 +11,29 @@ public class AppMain {
         graphs.add(new GraphNode("C  ",2));
         graphs.add(new GraphNode("D  ",3));
         graphs.add(new GraphNode("E  ",4));
-        graphs.add(new GraphNode("F  ",5));
-        graphs.add(new GraphNode("G  ",6));
+
         Graph graphList = new Graph(graphs);
         graphList.InsertNode(0,1);
         graphList.InsertNode(0,2);
+        graphList.InsertNode(0,3);
 
         graphList.InsertNode(1,0);
-        graphList.InsertNode(1,3);
-        graphList.InsertNode(1,6);
+        graphList.InsertNode(1,4);
+
 
         graphList.InsertNode(2,0);
         graphList.InsertNode(2,3);
-        graphList.InsertNode(2,4);
 
-        graphList.InsertNode(3,1);
+
+        graphList.InsertNode(3,0);
         graphList.InsertNode(3,2);
-        graphList.InsertNode(3,5);
+        graphList.InsertNode(3,4);
 
-        graphList.InsertNode(4,2);
-        graphList.InsertNode(4,5);
-
-        graphList.InsertNode(5,4);
-        graphList.InsertNode(5,3);
-        graphList.InsertNode(5,6);
-
-        graphList.InsertNode(6,1);
-        graphList.InsertNode(6,5);
+        graphList.InsertNode(4,1);
+        graphList.InsertNode(4,3);
         System.out.println( graphList.toString());
-        graphList.BST();
+        //graphList.BST();
+        graphList.DFST();
         /*
         ArrayList<GraphNode> graphs = new ArrayList<>();
         graphs.add(new GraphNode("Bob",0));

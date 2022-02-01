@@ -3,6 +3,7 @@ package com.company.Graph;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Graph {
     ArrayList<GraphNode> graphNodes = new ArrayList<>();
@@ -57,7 +58,31 @@ public class Graph {
             }
         }
     }
+    public void DFST(){
+        for(GraphNode node : graphNodes){
+            if(!node.isVisited){
+                dfsTraverse(node);
+            }
+        }
+    }
 
+    private void dfsTraverse(GraphNode node) {
+        Stack<GraphNode> stack = new Stack<>();
+        stack.add(node);
+        while(!stack.isEmpty()){
+            GraphNode currentNode = stack.pop();
+            currentNode.isVisited=true;
+            System.out.print(currentNode.name + " ");
+            ArrayList<GraphNode> neighbour = getNeighbours(currentNode);
+            for(GraphNode tempNode : neighbour){
+                if(!tempNode.isVisited){
+                    stack.push(tempNode);
+                    tempNode.isVisited=true;
+                }
+            }
+        }
+
+    }
     public ArrayList<GraphNode> getNeighbours(GraphNode node){
         ArrayList<GraphNode> neighbours = new ArrayList<>();
         int index = node.index;
